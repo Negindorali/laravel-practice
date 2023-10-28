@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/otp',[\App\Http\Controllers\UserController::class,'sendMsg'])->name('login');
+Route::post('/confirm',[\App\Http\Controllers\UserController::class,'confirmToken']);
+
+//Route::middleware('auth:sanctum')->post('/login',[\App\Http\Controllers\UserController::class,'sendMsg']);

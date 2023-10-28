@@ -1,0 +1,10 @@
+{
+    "Developer": "توسعه دهنده",
+    "Admin": "مدیر",
+    "User": "کاربر",
+    "The password is incorrect.": "رمز‌عبور صحیح نمی‌باشد.",
+    "Before proceeding, please check your email for a verification link.": "قبل از دسترسی به این صفحه، لطفا ایمیل خود را تایید فرمایید.",
+    "If you did not receive the email": "اگر ایمیلی دریافت نکرده\u200Cاید،",
+    "click here to request another": "برای ارسال دوباره ایمیل کلیک فرمایید.",
+    "A fresh verification link has been sent to your email address.": "ایمیل تایدیه برای شما ارسال شد."
+}
