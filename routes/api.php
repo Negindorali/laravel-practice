@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +19,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/otp',[\App\Http\Controllers\UserController::class,'sendMsg'])->name('login');
-Route::post('/confirm',[\App\Http\Controllers\UserController::class,'confirmToken']);
+Route::post('/otp',[UserController::class,'sendMsg'])->name('login');
+Route::post('/confirm',[UserController::class,'confirmToken']);
+Route::get('/getUser/{id}',[UserController::class,'getUser']);
+
+Route::get('/users',[UserController::class,'allUser']);
 
 //Route::middleware('auth:sanctum')->post('/login',[\App\Http\Controllers\UserController::class,'sendMsg']);

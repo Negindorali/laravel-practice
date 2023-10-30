@@ -22,10 +22,17 @@ class User extends Authenticatable
     const NAME='name';
     const OTP_CODE='otp_code';
     const PHONE='phone';
+    const PROFILE='profile_img';
     protected $fillable = [
         self::NAME,
         self::OTP_CODE,
         self::PHONE,
+        self::PROFILE
     ];
 
+
+    public function parent()
+    {
+        return $this->belongsTo(User::class,'parent_id');
+    }
 }
