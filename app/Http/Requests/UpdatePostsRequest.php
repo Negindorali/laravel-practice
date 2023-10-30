@@ -2,17 +2,14 @@
 
 namespace App\Http\Requests;
 
-use App\Models\User;
-use http\Env\Request;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
 
-class StorePostRequest extends FormRequest
+class UpdatePostsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
-    public function authorize(\Illuminate\Http\Request $request): bool
+    public function authorize(): bool
     {
         return true;
     }
@@ -24,9 +21,10 @@ class StorePostRequest extends FormRequest
      */
     public function rules(): array
     {
+
         return [
-            User::PHONE=>'required|numeric',
-            User::PROFILE=>'mimes:jpg,jpeg,png,bmp,tiff ',
+            "title" => 'required',
+            "desc" => 'required',
         ];
     }
 }

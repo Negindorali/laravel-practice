@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostsController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,4 +26,5 @@ Route::get('/getUser/{id}',[UserController::class,'getUser']);
 
 Route::get('/users',[UserController::class,'allUser']);
 
+Route::resource('posts',PostsController::class)->middleware('auth:sanctum');
 //Route::middleware('auth:sanctum')->post('/login',[\App\Http\Controllers\UserController::class,'sendMsg']);

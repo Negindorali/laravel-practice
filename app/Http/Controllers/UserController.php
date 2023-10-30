@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\StoreUsersRequest;
 use App\Http\Resources\userResource;
 use App\Http\Resources\UserResourceCollection;
 use http\Client;
@@ -14,7 +14,7 @@ use \App\Models\User;
 class UserController extends Controller
 {
 
-    public function sendMsg(StorePostRequest $request)
+    public function sendMsg(StoreUsersRequest $request)
     {
         if ($request->has('profile') && !$request->has('phone'))
             $this->uploadImg($request);
@@ -22,6 +22,7 @@ class UserController extends Controller
         $valid = $request->validated();
 
         $user = User::query()->updateOrCreate($valid, [
+            User::PHONE, $request->input(User::PHONE),
             User::OTP_CODE => rand(1000, 9999),
         ]);
 

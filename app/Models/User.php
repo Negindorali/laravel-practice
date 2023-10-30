@@ -23,16 +23,23 @@ class User extends Authenticatable
     const OTP_CODE='otp_code';
     const PHONE='phone';
     const PROFILE='profile_img';
+    const ID='id';
     protected $fillable = [
         self::NAME,
         self::OTP_CODE,
         self::PHONE,
-        self::PROFILE
+        self::PROFILE,
+        self::ID
     ];
 
 
     public function parent()
     {
         return $this->belongsTo(User::class,'parent_id');
+    }
+
+    public function userPosts()
+    {
+        return $this->belongsToMany(Posts::class,'posts');
     }
 }
